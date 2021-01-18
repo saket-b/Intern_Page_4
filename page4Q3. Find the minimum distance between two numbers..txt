@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+int find(int a[],int n,int x,int y)
+{
+    int index_x=-1;
+    int index_y=-1;
+    
+    int min_dis=INT_MAX;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==x)
+        index_x=i;
+        if(a[i]==y)
+         index_y=i;
+         
+         if(index_x!=-1 && index_y!=-1)
+         {
+             if(index_x<=index_y)
+             { int temp=index_y-index_x;
+                 if(temp<min_dis)
+                 min_dis=temp;
+             }
+         }
+         
+    }
+    return min_dis;
+}
+int main() {
+	
+	 int n;
+	  cin>>n;
+	  int a[n];
+	  
+	    for(int i=0;i<n;i++)
+	     cin>>a[i];
+	     
+	  int x,y;
+	  cin>>x>>y;
+	  cout<<find(a,n,x,y)<<endl;
+	  
+	return 0;
+}
