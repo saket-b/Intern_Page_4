@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+void find(int a[],int n)
+{
+    sort(a,a+n);
+    int first ,second;
+    if(n==1)
+    {first=a[0];
+    second=a[0];
+    }
+    else 
+    {
+        first=a[0];
+        second=a[n-1];
+        int maxm=abs(first-second);
+        int i=1,j=n-2;
+        while(i<j)
+        {
+             if(abs(a[i]-a[j])<maxm)
+             { maxm=abs(a[i]-a[j]);
+                  first=a[i];
+                  second=a[j];
+                
+                  j--;
+             }
+             else 
+             { 
+                i++; 
+             }
+           
+        }
+        
+    }
+    cout<<first<<" "<<second<<endl;
+  
+}
+int main() {
+	 int n;
+	  cin>>n;
+	   int  a[n];
+	   for(int i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        
+	    }
+	    find(a,n);
+
+	return 0;
+}
